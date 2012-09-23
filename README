@@ -1,0 +1,22 @@
+1 README
+********
+
+Shortcut Recorder is a free ApplicationKit control for easily capturing key combinations. 
+It comes with an Interface Builder palette, it is customizable and resolution-independent. 
+
+1.1 Dependencies
+================
+
+Main logic depends solely on ApplicationKit. Current version still contains a code necessary
+for global shortcut (aka symbolic hotkey) manipulations, but it is automatically stripped by
+preprocessor if compiled on platform other than Mac. So, dependecy on Carbon isn't a problem.
+
+1.2 License
+===========
+
+BSD
+
+1.3 How can I help?
+===================
+
+Use it, submit bug reports, fork it.

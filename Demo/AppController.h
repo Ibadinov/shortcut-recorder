@@ -35,7 +35,7 @@
 	
 	IBOutlet SRRecorderControl *delegateDisallowRecorder;
 	
-	IBOutlet NSButton *globalHotKeyCheckBox;
+	IBOutlet NSButton   *globalHotKeyCheckBox;
 	IBOutlet NSTextView *globalHotKeyLogView;
 	
 	IBOutlet NSTextField *delegateDisallowReasonField;

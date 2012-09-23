@@ -2,13 +2,14 @@
 //  AppController.m
 //  ShortcutRecorder
 //
-//  Copyright 2006-2007 Contributors. All rights reserved.
+//  Copyright 2006-2012 Contributors. All rights reserved.
 //
 //  License: BSD
 //
 //  Contributors:
 //      David Dauer
 //      Jesper
+//      Marat Ibadinov
 
 #import "AppController.h"
 #import "PTHotKeyCenter.h"
@@ -60,8 +61,8 @@
 	if (![globalHotKeyCheckBox state]) return;
 
 	globalHotKey = [[PTHotKey alloc] initWithIdentifier:@"SRTest"
-											   keyCombo:[PTKeyCombo keyComboWithKeyCode:[shortcutRecorder keyCombo].code
-																			  modifiers:[shortcutRecorder cocoaToCarbonFlags: [shortcutRecorder keyCombo].flags]]];
+											   keyCombo:[PTKeyCombo keyComboWithKeyCode:[[shortcutRecorder shortcut] character]
+																			  modifiers:[[shortcutRecorder shortcut] carbonModifiers]]];
 	
 	[globalHotKey setTarget: self];
 	[globalHotKey setAction: @selector(hitHotKey:)];
@@ -95,15 +96,18 @@
 
 #pragma mark -
 
-- (BOOL)shortcutRecorder:(SRRecorderControl *)aRecorder isKeyCode:(NSInteger)keyCode andFlagsTaken:(NSUInteger)flags reason:(NSString **)aReason
+- (BOOL)shortcutRecorder:(SRRecorderControl *)aRecorder isReservedShortcut:(SRShortcut *)aShortcut reason:(NSString **)aReason;
 {
 	if (aRecorder == shortcutRecorder)
 	{
 		BOOL isTaken = NO;
 		
-		KeyCombo kc = [delegateDisallowRecorder keyCombo];
+		SRShortcut *disallowed = [delegateDisallowRecorder shortcut];
 		
-		if (kc.code == keyCode && kc.flags == flags) isTaken = YES;
+		if (disallowed == aShortcut) 
+        {
+            isTaken = YES;
+        }
 		
 		*aReason = [delegateDisallowReasonField stringValue];
 		
@@ -113,7 +117,7 @@
 	return NO;
 }
 
-- (void)shortcutRecorder:(SRRecorderControl *)aRecorder keyComboDidChange:(KeyCombo)newKeyCombo
+- (void)shortcutRecorder:(SRRecorderControl *)aRecorder shortcutDidChange:(SRShortcut *)newShortcut
 {
 	if (aRecorder == shortcutRecorder)
 	{
@@ -124,7 +128,7 @@
 - (void)hitHotKey:(PTHotKey *)hotKey
 {
 	NSMutableAttributedString *logString = [globalHotKeyLogView textStorage];
-	[[logString mutableString] appendString: [NSString stringWithFormat: @"%@ pressed. \n", [shortcutRecorder keyComboString]]];
+	[[logString mutableString] appendString: [NSString stringWithFormat: @"%@ pressed. \n", [[shortcutRecorder shortcut] string]]];
 	
 	[globalHotKeyLogView scrollPoint: NSMakePoint(0, [globalHotKeyLogView frame].size.height)];
 }

@@ -2,7 +2,7 @@
 //  SRRecorderCell.h
 //  ShortcutRecorder
 //
-//  Copyright 2006-2007 Contributors. All rights reserved.
+//  Copyright 2006-2012 Contributors. All rights reserved.
 //
 //  License: BSD
 //
@@ -10,29 +10,32 @@
 //      David Dauer
 //      Jesper
 //      Jamie Kirkpatrick
+//      Marat Ibadinov
+
+#import "SRCommon.h"
+#import "SRShortcut.h"
 
 #import <Cocoa/Cocoa.h>
-#import "SRCommon.h"
 
 #define SRMinWidth 50
 #define SRMaxHeight 22
 
 #define SRTransitionFPS 30.0f
 #define SRTransitionDuration 0.35f
-//#define SRTransitionDuration 2.35
 #define SRTransitionFrames (SRTransitionFPS*SRTransitionDuration)
 #define SRAnimationAxisIsY YES
 #define ShortcutRecorderNewStyleDrawing
 
-#define SRAnimationOffsetRect(X,Y)	(SRAnimationAxisIsY ? NSOffsetRect(X,0.0f,-NSHeight(Y)) : NSOffsetRect(X,NSWidth(Y),0.0f))
+NS_INLINE NSRect SRAnimationOffsetRect(NSRect X, NSRect Y)	{
+    return SRAnimationAxisIsY ? NSOffsetRect(X, 0.0f, -NSHeight(Y)) : NSOffsetRect(X, NSWidth(Y), 0.0f);
+}
 
 @class SRRecorderControl, SRValidator;
 
-enum SRRecorderStyle {
+typedef enum __SRRecorderStyle {
     SRGradientBorderStyle = 0,
     SRGreyStyle = 1
-};
-typedef enum SRRecorderStyle SRRecorderStyle;
+} SRRecorderStyle;
 
 @interface SRRecorderCell : NSActionCell <NSCoding>
 {	
@@ -54,14 +57,11 @@ typedef enum SRRecorderStyle SRRecorderStyle;
 	NSTrackingRectTag   removeTrackingRectTag;
 	NSTrackingRectTag   snapbackTrackingRectTag;
 	
-	KeyCombo            keyCombo;
-	BOOL				hasKeyChars;
-	NSString		    *keyChars;
-	NSString		    *keyCharsIgnoringModifiers;
+	SRShortcut          *shortcut;
 	
-	NSUInteger        allowedFlags;
-	NSUInteger        requiredFlags;
-	NSUInteger        recordingFlags;
+	NSUInteger          allowedFlags;
+	NSUInteger          requiredFlags;
+	NSUInteger          recordingFlags;
 	
 	BOOL				allowsKeyOnly;
 	BOOL				escapeKeysRecord;
@@ -116,24 +116,20 @@ typedef enum SRRecorderStyle SRRecorderStyle;
 - (BOOL)canCaptureGlobalHotKeys;
 - (void)setCanCaptureGlobalHotKeys:(BOOL)inState;
 
-- (KeyCombo)keyCombo;
-- (void)setKeyCombo:(KeyCombo)aKeyCombo;
+- (SRShortcut *)shortcut;
+- (void)setShortcut:(SRShortcut *)shortcut;
 
 #pragma mark *** Autosave Control ***
 
 - (NSString *)autosaveName;
 - (void)setAutosaveName:(NSString *)aName;
 
-// Returns the displayed key combination if set
-- (NSString *)keyComboString;
-
-- (NSString *)keyChars;
-- (NSString *)keyCharsIgnoringModifiers;
-
 @end
 
-// Delegate Methods
+/* Delegate Methods */
 @interface NSObject (SRRecorderCellDelegate)
-- (BOOL)shortcutRecorderCell:(SRRecorderCell *)aRecorderCell isKeyCode:(NSInteger)keyCode andFlagsTaken:(NSUInteger)flags reason:(NSString **)aReason;
-- (void)shortcutRecorderCell:(SRRecorderCell *)aRecorderCell keyComboDidChange:(KeyCombo)newCombo;
+
+- (BOOL)shortcutRecorderCell:(SRRecorderCell *)aRecorderCell isReservedShortcut:(SRShortcut *)shortcut reason:(NSString **)reason;
+- (void)shortcutRecorderCell:(SRRecorderCell *)aRecorderCell shortcutDidChange:(SRShortcut *)newShortcut;
+
 @end

@@ -2,7 +2,7 @@
 //  SRRecorderControl.h
 //  ShortcutRecorder
 //
-//  Copyright 2006-2007 Contributors. All rights reserved.
+//  Copyright 2006-2012 Contributors. All rights reserved.
 //
 //  License: BSD
 //
@@ -10,8 +10,10 @@
 //      David Dauer
 //      Jesper
 //      Jamie Kirkpatrick
+//      Marat Ibadinov
 
 #import <Cocoa/Cocoa.h>
+
 #import "SRRecorderCell.h"
 
 @interface SRRecorderControl : NSControl
@@ -44,26 +46,13 @@
 - (NSUInteger)requiredFlags;
 - (void)setRequiredFlags:(NSUInteger)flags;
 
-- (KeyCombo)keyCombo;
-- (void)setKeyCombo:(KeyCombo)aKeyCombo;
-
-- (NSString *)keyChars;
-- (NSString *)keyCharsIgnoringModifiers;
+- (SRShortcut *)shortcut;
+- (void)setShortcut:(SRShortcut *)aShortcut;
 
 #pragma mark *** Autosave Control ***
 
 - (NSString *)autosaveName;
 - (void)setAutosaveName:(NSString *)aName;
-
-#pragma mark -
-
-// Returns the displayed key combination if set
-- (NSString *)keyComboString;
-
-#pragma mark *** Conversion Methods ***
-
-- (NSUInteger)cocoaToCarbonFlags:(NSUInteger)cocoaFlags;
-- (NSUInteger)carbonToCocoaFlags:(NSUInteger)carbonFlags;
 
 #pragma mark *** Binding Methods ***
 
@@ -74,6 +63,8 @@
 
 // Delegate Methods
 @interface NSObject (SRRecorderDelegate)
-- (BOOL)shortcutRecorder:(SRRecorderControl *)aRecorder isKeyCode:(NSInteger)keyCode andFlagsTaken:(NSUInteger)flags reason:(NSString **)aReason;
-- (void)shortcutRecorder:(SRRecorderControl *)aRecorder keyComboDidChange:(KeyCombo)newKeyCombo;
+
+- (BOOL)shortcutRecorder:(SRRecorderControl *)aRecorder isReservedShortcut:(SRShortcut *)shortcut reason:(NSString **)reason;
+- (void)shortcutRecorder:(SRRecorderControl *)aRecorder shortcutDidChange:(SRShortcut *)newShortcut;
+
 @end

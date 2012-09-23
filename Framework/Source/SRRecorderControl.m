@@ -2,7 +2,7 @@
 //  SRRecorderControl.m
 //  ShortcutRecorder
 //
-//  Copyright 2006-2007 Contributors. All rights reserved.
+//  Copyright 2006-2012 Contributors. All rights reserved.
 //
 //  License: BSD
 //
@@ -10,6 +10,7 @@
 //      David Dauer
 //      Jesper
 //      Jamie Kirkpatrick
+//      Marat Ibadinov
 
 #import "SRRecorderControl.h"
 #import "SRCommon.h"
@@ -149,14 +150,6 @@
 	[super setFrame: correctedFrarme];
 }
 
-- (NSString *)keyChars {
-	return [SRCell keyChars];
-}
-
-- (NSString *)keyCharsIgnoringModifiers {
-	return [SRCell keyCharsIgnoringModifiers];	
-}
-
 #pragma mark *** Key Interception ***
 
 // Like most NSControls, pass things on to the cell
@@ -236,44 +229,36 @@
 	[SRCell setRequiredFlags: flags];
 }
 
-- (KeyCombo)keyCombo
+- (SRShortcut *)shortcut
 {
-	return [SRCell keyCombo];
+	return [SRCell shortcut];
 }
 
-- (void)setKeyCombo:(KeyCombo)aKeyCombo
+- (void)setShortcut:(SRShortcut *)aShortcut
 {
-	[SRCell setKeyCombo: aKeyCombo];
+	[SRCell setShortcut:aShortcut];
 }
 
 #pragma mark *** Binding Methods ***
 
 - (NSDictionary *)objectValue
 {
-    KeyCombo keyCombo = [self keyCombo];
-    if (keyCombo.code == ShortcutRecorderEmptyCode || keyCombo.flags == ShortcutRecorderEmptyFlags)
+    SRShortcut *shortcut = [self shortcut];
+    if ([shortcut isEmpty]) {
         return nil;
-
-    return [NSDictionary dictionaryWithObjectsAndKeys:
-            [self keyCharsIgnoringModifiers], @"characters",
-            [NSNumber numberWithInteger:keyCombo.code], @"keyCode",
-            [NSNumber numberWithUnsignedInteger:keyCombo.flags], @"modifierFlags",
-            nil];
-}
-
-- (void)setObjectValue:(NSDictionary *)shortcut
-{
-    KeyCombo keyCombo = SRMakeKeyCombo(ShortcutRecorderEmptyCode, ShortcutRecorderEmptyFlags);
-    if (shortcut != nil && [shortcut isKindOfClass:[NSDictionary class]]) {
-        NSNumber *keyCode = [shortcut objectForKey:@"keyCode"];
-        NSNumber *modifierFlags = [shortcut objectForKey:@"modifierFlags"];
-        if ([keyCode isKindOfClass:[NSNumber class]] && [modifierFlags isKindOfClass:[NSNumber class]]) {
-            keyCombo.code = [keyCode integerValue];
-            keyCombo.flags = [modifierFlags unsignedIntegerValue];
-        }
     }
 
-	[self setKeyCombo: keyCombo];
+    return [NSDictionary dictionaryWithObject:shortcut forKey:@"shortcut"];
+}
+
+- (void)setObjectValue:(NSDictionary *)value
+{
+    SRShortcut *shortcut = nil;
+    if (value != nil && [value isKindOfClass:[NSDictionary class]]) {
+        shortcut = [value objectForKey:@"shortcut"];
+    }
+
+	[self setShortcut: (shortcut ? shortcut : [SRShortcut shortcut])];
 }
 
 - (Class)valueClassForBinding:(NSString *)binding
@@ -296,25 +281,6 @@
 	[SRCell setAutosaveName: aName];
 }
 
-#pragma mark -
-
-- (NSString *)keyComboString
-{
-	return [SRCell keyComboString];
-}
-
-#pragma mark *** Conversion Methods ***
-
-- (NSUInteger)cocoaToCarbonFlags:(NSUInteger)cocoaFlags
-{
-	return SRCocoaToCarbonFlags( cocoaFlags );
-}
-
-- (NSUInteger)carbonToCocoaFlags:(NSUInteger)carbonFlags;
-{
-	return SRCarbonToCocoaFlags( carbonFlags );
-}
-
 #pragma mark *** Delegate ***
 
 // Only the delegate will be handled by the control
@@ -330,20 +296,23 @@
 
 #pragma mark *** Delegate pass-through ***
 
-- (BOOL)shortcutRecorderCell:(SRRecorderCell *)aRecorderCell isKeyCode:(NSInteger)keyCode andFlagsTaken:(NSUInteger)flags reason:(NSString **)aReason
+- (BOOL)shortcutRecorderCell:(SRRecorderCell *)aRecorderCell isReservedShortcut:(SRShortcut *)shortcut reason:(NSString **)reason
 {
-	if (delegate != nil && [delegate respondsToSelector: @selector(shortcutRecorder:isKeyCode:andFlagsTaken:reason:)])
-		return [delegate shortcutRecorder:self isKeyCode:keyCode andFlagsTaken:flags reason:aReason];
-	else
-		return NO;
+	if (delegate != nil && [delegate respondsToSelector: @selector(shortcutRecorder:isReservedShortcut:reason:)])
+    {
+        return [delegate shortcutRecorder:self isReservedShortcut:shortcut reason:reason];
+    }
+    return NO;
 }
 
 #define NilOrNull(o) ((o) == nil || (id)(o) == [NSNull null])
 
-- (void)shortcutRecorderCell:(SRRecorderCell *)aRecorderCell keyComboDidChange:(KeyCombo)newKeyCombo
+- (void)shortcutRecorderCell:(SRRecorderCell *)aRecorderCell shortcutDidChange:(SRShortcut *)newShortcut
 {
-	if (delegate != nil && [delegate respondsToSelector: @selector(shortcutRecorder:keyComboDidChange:)])
-		[delegate shortcutRecorder:self keyComboDidChange:newKeyCombo];
+	if (delegate != nil && [delegate respondsToSelector: @selector(shortcutRecorder:shortcutDidChange:)])
+    {
+		[delegate shortcutRecorder:self shortcutDidChange:newShortcut];
+    }
 
     // propagate view changes to binding (see http://www.tomdalling.com/cocoa/implementing-your-own-cocoa-bindings)
     NSDictionary *bindingInfo = [self infoForBinding:@"value"];

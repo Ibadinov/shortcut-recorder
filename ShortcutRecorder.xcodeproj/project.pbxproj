@@ -7,20 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		181206FF160E5E0E00061B60 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 181206FE160E5E0E00061B60 /* Carbon.framework */; };
+		18120700160E5E5500061B60 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 181206FE160E5E0E00061B60 /* Carbon.framework */; };
+		18120703160E6FB500061B60 /* SRShortcut.h in Headers */ = {isa = PBXBuildFile; fileRef = 18120701160E6FB500061B60 /* SRShortcut.h */; };
+		18120704160E6FB500061B60 /* SRShortcut.m in Sources */ = {isa = PBXBuildFile; fileRef = 18120702160E6FB500061B60 /* SRShortcut.m */; };
+		18DE4882160F339F00A96B92 /* SRGlobalHotkeySupport.h in Headers */ = {isa = PBXBuildFile; fileRef = 18DE4880160F339F00A96B92 /* SRGlobalHotkeySupport.h */; };
+		18DE4883160F339F00A96B92 /* SRGlobalHotkeySupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DE4881160F339F00A96B92 /* SRGlobalHotkeySupport.m */; };
 		9371C79D15167DE2008B7F36 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9371C79715167DE2008B7F36 /* InfoPlist.strings */; };
 		9371C79E15167DE2008B7F36 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9371C79915167DE2008B7F36 /* Localizable.strings */; };
 		9371C79F15167DE2008B7F36 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9371C79B15167DE2008B7F36 /* MainMenu.xib */; };
 		939837950DA429EC007F53F3 /* SRRecorderControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B8E29C109CDB9360085E9ED /* SRRecorderControl.m */; };
 		939837960DA429EC007F53F3 /* SRRecorderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B8E29C309CDB9360085E9ED /* SRRecorderCell.m */; };
-		939837980DA429EC007F53F3 /* SRKeyCodeTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 74C3670D0A246B4900B69171 /* SRKeyCodeTransformer.m */; };
 		939837990DA429EC007F53F3 /* SRValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 74C3670F0A246B4900B69171 /* SRValidator.m */; };
 		9398379A0DA429EC007F53F3 /* SRCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 74C367110A246B4900B69171 /* SRCommon.m */; };
 		939838770DA42E23007F53F3 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
-		939838780DA42E23007F53F3 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B57CB1109C482D20000E739 /* Carbon.framework */; };
 		939839390DA4350B007F53F3 /* ShortcutRecorder.h in Headers */ = {isa = PBXBuildFile; fileRef = 939837B50DA42DFB007F53F3 /* ShortcutRecorder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9398393B0DA4350B007F53F3 /* SRRecorderControl.h in Headers */ = {isa = PBXBuildFile; fileRef = 0B8E29C009CDB9360085E9ED /* SRRecorderControl.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9398393C0DA4350B007F53F3 /* SRRecorderCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 0B8E29C209CDB9360085E9ED /* SRRecorderCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9398393E0DA4350B007F53F3 /* SRKeyCodeTransformer.h in Headers */ = {isa = PBXBuildFile; fileRef = 74C3670C0A246B4900B69171 /* SRKeyCodeTransformer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9398393F0DA4350B007F53F3 /* SRValidator.h in Headers */ = {isa = PBXBuildFile; fileRef = 74C3670E0A246B4900B69171 /* SRValidator.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		939839400DA4350B007F53F3 /* SRCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = 74C367100A246B4900B69171 /* SRCommon.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		93983B100DA43C4E007F53F3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
@@ -29,7 +32,6 @@
 		93983B160DA43C4E007F53F3 /* PTHotKeyCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B8E2A0609CDBADE0085E9ED /* PTHotKeyCenter.m */; };
 		93983B170DA43C4E007F53F3 /* PTKeyCombo.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B8E2A0809CDBADE0085E9ED /* PTKeyCombo.m */; };
 		93983B1C0DA43C4E007F53F3 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
-		93983B1D0DA43C4E007F53F3 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B57CB1109C482D20000E739 /* Carbon.framework */; };
 		93983B1E0DA43C4E007F53F3 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B57CB1309C482DC0000E739 /* CoreServices.framework */; };
 		93983B2D0DA43C79007F53F3 /* ShortcutRecorder.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 939837800DA42965007F53F3 /* ShortcutRecorder.framework */; };
 		93983B390DA43C82007F53F3 /* ShortcutRecorder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 939837800DA42965007F53F3 /* ShortcutRecorder.framework */; };
@@ -82,7 +84,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0B57CB1109C482D20000E739 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
 		0B57CB1309C482DC0000E739 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = /System/Library/Frameworks/CoreServices.framework; sourceTree = "<absolute>"; };
 		0B5E281809C1D6C500444687 /* SRRemoveShortcut.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = SRRemoveShortcut.tif; sourceTree = "<group>"; };
 		0B5E281A09C1D6C500444687 /* SRRemoveShortcutPressed.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = SRRemoveShortcutPressed.tif; sourceTree = "<group>"; };
@@ -102,12 +103,19 @@
 		0B8E2A0809CDBADE0085E9ED /* PTKeyCombo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTKeyCombo.m; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
+		181206FB160E5DFF00061B60 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
+		181206FE160E5E0E00061B60 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
+		18120701160E6FB500061B60 /* SRShortcut.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SRShortcut.h; path = Framework/Source/SRShortcut.h; sourceTree = SOURCE_ROOT; };
+		18120702160E6FB500061B60 /* SRShortcut.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SRShortcut.m; path = Framework/Source/SRShortcut.m; sourceTree = SOURCE_ROOT; };
+		18DE4880160F339F00A96B92 /* SRGlobalHotkeySupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SRGlobalHotkeySupport.h; path = Framework/Source/SRGlobalHotkeySupport.h; sourceTree = SOURCE_ROOT; };
+		18DE4881160F339F00A96B92 /* SRGlobalHotkeySupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SRGlobalHotkeySupport.m; path = Framework/Source/SRGlobalHotkeySupport.m; sourceTree = SOURCE_ROOT; };
+		18DE4885160F9D7200A96B92 /* TODO */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.simpleColoring; };
+		18DE4886160F9E5F00A96B92 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		18DE4887160FA09800A96B92 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = "<none>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Demo/main.m; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		32CA4F630368D1EE00C91783 /* ShortcutRecorder_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShortcutRecorder_Prefix.pch; sourceTree = "<group>"; };
-		74C3670C0A246B4900B69171 /* SRKeyCodeTransformer.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = SRKeyCodeTransformer.h; path = Framework/Source/SRKeyCodeTransformer.h; sourceTree = SOURCE_ROOT; };
-		74C3670D0A246B4900B69171 /* SRKeyCodeTransformer.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = SRKeyCodeTransformer.m; path = Framework/Source/SRKeyCodeTransformer.m; sourceTree = SOURCE_ROOT; };
 		74C3670E0A246B4900B69171 /* SRValidator.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = SRValidator.h; path = Framework/Source/SRValidator.h; sourceTree = SOURCE_ROOT; };
 		74C3670F0A246B4900B69171 /* SRValidator.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = SRValidator.m; path = Framework/Source/SRValidator.m; sourceTree = SOURCE_ROOT; };
 		74C367100A246B4900B69171 /* SRCommon.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = SRCommon.h; path = Framework/Source/SRCommon.h; sourceTree = SOURCE_ROOT; };
@@ -204,8 +212,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				181206FF160E5E0E00061B60 /* Carbon.framework in Frameworks */,
 				939838770DA42E23007F53F3 /* Cocoa.framework in Frameworks */,
-				939838780DA42E23007F53F3 /* Carbon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,9 +221,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18120700160E5E5500061B60 /* Carbon.framework in Frameworks */,
 				93983B390DA43C82007F53F3 /* ShortcutRecorder.framework in Frameworks */,
 				93983B1C0DA43C4E007F53F3 /* Cocoa.framework in Frameworks */,
-				93983B1D0DA43C4E007F53F3 /* Carbon.framework in Frameworks */,
 				93983B1E0DA43C4E007F53F3 /* CoreServices.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -252,12 +260,14 @@
 				0B8E29C109CDB9360085E9ED /* SRRecorderControl.m */,
 				0B8E29C209CDB9360085E9ED /* SRRecorderCell.h */,
 				0B8E29C309CDB9360085E9ED /* SRRecorderCell.m */,
-				74C3670C0A246B4900B69171 /* SRKeyCodeTransformer.h */,
-				74C3670D0A246B4900B69171 /* SRKeyCodeTransformer.m */,
 				74C3670E0A246B4900B69171 /* SRValidator.h */,
 				74C3670F0A246B4900B69171 /* SRValidator.m */,
 				74C367100A246B4900B69171 /* SRCommon.h */,
 				74C367110A246B4900B69171 /* SRCommon.m */,
+				18120701160E6FB500061B60 /* SRShortcut.h */,
+				18120702160E6FB500061B60 /* SRShortcut.m */,
+				18DE4880160F339F00A96B92 /* SRGlobalHotkeySupport.h */,
+				18DE4881160F339F00A96B92 /* SRGlobalHotkeySupport.m */,
 			);
 			name = Framework;
 			path = Source;
@@ -302,7 +312,6 @@
 			isa = PBXGroup;
 			children = (
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
-				0B57CB1109C482D20000E739 /* Carbon.framework */,
 				0B57CB1309C482DC0000E739 /* CoreServices.framework */,
 			);
 			name = "Linked Frameworks";
@@ -331,6 +340,11 @@
 		29B97314FDCFA39411CA2CEA /* ShortcutRecorder */ = {
 			isa = PBXGroup;
 			children = (
+				18DE4887160FA09800A96B92 /* README */,
+				18DE4886160F9E5F00A96B92 /* LICENSE */,
+				18DE4885160F9D7200A96B92 /* TODO */,
+				181206FE160E5E0E00061B60 /* Carbon.framework */,
+				181206FB160E5DFF00061B60 /* CoreServices.framework */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -387,10 +401,11 @@
 				939839390DA4350B007F53F3 /* ShortcutRecorder.h in Headers */,
 				9398393B0DA4350B007F53F3 /* SRRecorderControl.h in Headers */,
 				9398393C0DA4350B007F53F3 /* SRRecorderCell.h in Headers */,
-				9398393E0DA4350B007F53F3 /* SRKeyCodeTransformer.h in Headers */,
 				9398393F0DA4350B007F53F3 /* SRValidator.h in Headers */,
 				939839400DA4350B007F53F3 /* SRCommon.h in Headers */,
 				A1125B77104C8AF3005C6F7B /* PTKeyCodeTranslator.h in Headers */,
+				18120703160E6FB500061B60 /* SRShortcut.h in Headers */,
+				18DE4882160F339F00A96B92 /* SRGlobalHotkeySupport.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -511,9 +526,10 @@
 			files = (
 				939837950DA429EC007F53F3 /* SRRecorderControl.m in Sources */,
 				939837960DA429EC007F53F3 /* SRRecorderCell.m in Sources */,
-				939837980DA429EC007F53F3 /* SRKeyCodeTransformer.m in Sources */,
 				939837990DA429EC007F53F3 /* SRValidator.m in Sources */,
 				9398379A0DA429EC007F53F3 /* SRCommon.m in Sources */,
+				18120704160E6FB500061B60 /* SRShortcut.m in Sources */,
+				18DE4883160F339F00A96B92 /* SRGlobalHotkeySupport.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -682,7 +698,7 @@
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
 				INFOPLIST_FILE = "Framework/SR_LeopardFramework-Info.plist";
 				INSTALL_PATH = "@rpath";
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MACOSX_DEPLOYMENT_TARGET = "";
 				OTHER_LDFLAGS = (
 					"-framework",
 					Foundation,
@@ -723,7 +739,7 @@
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
 				INFOPLIST_FILE = "Framework/SR_LeopardFramework-Info.plist";
 				INSTALL_PATH = "@rpath";
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MACOSX_DEPLOYMENT_TARGET = "";
 				OTHER_LDFLAGS = (
 					"-framework",
 					Foundation,
@@ -749,7 +765,7 @@
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
 				INFOPLIST_FILE = "Framework/SR_LeopardFramework-Info.plist";
 				INSTALL_PATH = "@rpath";
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MACOSX_DEPLOYMENT_TARGET = "";
 				OTHER_LDFLAGS = (
 					"-framework",
 					Foundation,

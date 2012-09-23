@@ -1,0 +1,3 @@
+1. Place headers into ShortcutRecorder directory, include as <ShortcutRecorder/ShortcutRecorder.h>
+2. Restructure project: make it an aggregate containing Framework and Demo subprojects
+3. Tidy-up directory structure, make xCode project match it
